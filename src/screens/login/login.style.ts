@@ -34,6 +34,8 @@ const style = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 5,
     marginVertical: 12,
+    flexDirection:'row',
+    justifyContent:"center"
   },
   loginButtonText: {
     textAlign: 'center',

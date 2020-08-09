@@ -15,7 +15,7 @@ const Root: React.FC = () => {
   return (
     <NavigationContainer>
       <StatusBar backgroundColor={Pallete.common.white} />
-      <Stack.Navigator headerMode="none" initialRouteName={Screens.SIGNUP}>
+      <Stack.Navigator headerMode="none" initialRouteName={Screens.SPLASH}>
         <Stack.Screen
           component={Splash}
           name={Screens.SPLASH}

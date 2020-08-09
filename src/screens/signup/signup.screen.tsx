@@ -25,10 +25,10 @@ const LoginScreen: React.FC = () => {
           <TextInput placeholder={Lang.EN.email} style={style.input} clearButtonMode={Setting.inputClearMode} />
         </KeyboardAvoidingView>
         <KeyboardAvoidingView>
-          <TextInput placeholder={Lang.EN.password} style={style.input} clearButtonMode={Setting.inputClearMode} />
+          <TextInput placeholder={Lang.EN.password} style={style.input} clearButtonMode={Setting.inputClearMode} secureTextEntry={true} />
         </KeyboardAvoidingView>
         <KeyboardAvoidingView>
-          <TextInput placeholder={Lang.EN.confirmPassword} style={style.input} clearButtonMode={Setting.inputClearMode} />
+          <TextInput placeholder={Lang.EN.confirmPassword} style={style.input} clearButtonMode={Setting.inputClearMode} secureTextEntry={true} />
         </KeyboardAvoidingView>
 
         <TouchableOpacity style={style.loginButton}>

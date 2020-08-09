@@ -1,6 +1,7 @@
 // Project files
 import { ILoginBody, ISignupBody } from "@app/types";
-import { LoggerService } from '@app/services';
+import { LoggerService, NetworkService } from '@app/services';
+import Config from "@app/config";
 
 const logger = new LoggerService('app:auth.service');
 
@@ -14,11 +15,13 @@ class AuthService {
   }
 
   public async login(payload: ILoginBody) {
-    logger.log(JSON.stringify(payload));
+    const response = await NetworkService.post(`${Config.SERVER_URL}/auth/login`, payload);
+    return response;
   }
 
   public async signup(payload: ISignupBody) {
-    logger.log(JSON.stringify(payload));
+    const response = await NetworkService.post(`${Config.SERVER_URL}/auth/signup`, payload);
+    console.log(response);
   }
 
   public isAuthenticated() {
