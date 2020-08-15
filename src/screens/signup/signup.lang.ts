@@ -1,5 +1,5 @@
 export default {
-  'EN': {
+  EN: {
     appText: 'SR Mart',
     signupHeader: 'Create your Account',
     alreadyAccount: 'Already have account?',
@@ -8,6 +8,6 @@ export default {
     signup: 'Sign up',
     email: 'Email',
     password: 'Password',
-    confirmPassword: "Confirm password"
-  }
-}
+    confirmPassword: 'Confirm password',
+  },
+};

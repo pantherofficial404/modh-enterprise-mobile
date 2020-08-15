@@ -6,14 +6,23 @@ import { Pallete } from '@app/constant';
 
 const style = StyleSheet.create({
   root: {
-    backgroundColor: Pallete.primary.main,
     flex: 1,
+    padding: 12,
+  },
+  keyboardView: {
+    flex: 1,
+  },
+  input: {
+    marginBottom: 1,
+    padding: 100,
+  },
+  addAddressButton: {
+    backgroundColor: Pallete.primary.main,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  logoText: {
-    color: Pallete.common.white,
-    fontSize: 30,
+    paddingVertical: 18,
+    margin: 12,
+    borderRadius: 5,
   },
 });
 

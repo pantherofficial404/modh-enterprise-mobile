@@ -6,11 +6,13 @@ import { Text, TextStyle, StyleProp } from 'react-native';
 import { Pallete } from '@app/constant';
 
 interface IProps {
-  color?: 'primary' | 'textPrimary' | 'textSecondary';
+  color?: 'primary' | 'textPrimary' | 'textSecondary' | 'white';
   style?: StyleProp<TextStyle>;
 }
 
-const getColor = (color: 'primary' | 'textPrimary' | 'textSecondary' | undefined) => {
+const getColor = (
+  color: 'primary' | 'textPrimary' | 'textSecondary' | 'white' | undefined,
+) => {
   if (color === 'primary') {
     return Pallete.primary.main;
   }
@@ -20,21 +22,22 @@ const getColor = (color: 'primary' | 'textPrimary' | 'textSecondary' | undefined
   if (color === 'textSecondary') {
     return Pallete.typography.secondary;
   }
+  if (color === 'white') {
+    return Pallete.common.white;
+  }
   return Pallete.typography.primary;
-}
+};
 
 const TypographyComponent: React.FC<IProps & TextStyle> = (props) => {
   const { children, color, style, ...rest } = props;
   return (
-    <Text style={[{ ...rest, color: getColor(color), }, style]}>
-      {children}
-    </Text>
-  )
-}
+    <Text style={[{ ...rest, color: getColor(color) }, style]}>{children}</Text>
+  );
+};
 
 TypographyComponent.defaultProps = {
   textAlign: 'left',
-  color: 'textPrimary'
-}
+  color: 'textPrimary',
+};
 
 export default TypographyComponent;

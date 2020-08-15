@@ -55,6 +55,9 @@
       "@app/layout": [
         "./layout"
       ],
+      "@app/layout/*": [
+        "./layout/*"
+      ],
       "@app/config": [
         "./config"
       ],

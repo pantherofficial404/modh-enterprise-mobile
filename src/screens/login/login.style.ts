@@ -8,7 +8,7 @@ const style = StyleSheet.create({
   root: {
     flex: 1,
     paddingHorizontal: 24,
-    backgroundColor: Pallete.common.white
+    backgroundColor: Pallete.common.white,
   },
   loginText: {
     fontSize: 28,
@@ -34,8 +34,8 @@ const style = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 5,
     marginVertical: 12,
-    flexDirection:'row',
-    justifyContent:"center"
+    flexDirection: 'row',
+    justifyContent: 'center',
   },
   loginButtonText: {
     textAlign: 'center',
@@ -67,7 +67,7 @@ const style = StyleSheet.create({
   },
   socialLoginContainer: {
     flexDirection: 'row',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   socialImage: {
     height: 28,
@@ -91,12 +91,15 @@ const style = StyleSheet.create({
   signupContainer: {
     flexDirection: 'row',
     marginTop: 40,
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   signupText: {
     marginLeft: 5,
-    fontWeight: '500'
-  }
+    fontWeight: '500',
+  },
+  keyboardView: {
+    flex: 1,
+  },
 });
 
 export default style;

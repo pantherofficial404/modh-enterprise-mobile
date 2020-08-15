@@ -1,6 +1,17 @@
 // Libraries
 import React, { useState } from 'react';
-import { View, Text, Image, TextInput, KeyboardAvoidingView, TouchableOpacity, ActivityIndicator } from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  TextInput,
+  KeyboardAvoidingView,
+  TouchableOpacity,
+  ActivityIndicator,
+  Platform,
+  Keyboard,
+  TouchableWithoutFeedback,
+} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 // Project files
@@ -17,14 +28,18 @@ import * as Helpers from '@app/helpers';
 const LoginScreen: React.FC = () => {
   const navigation = useNavigation();
 
-  const [loginForm, setLoginForm] = useState<ILoginBody>({ email: '', password: '' });
+  const [loginForm, setLoginForm] = useState<ILoginBody>({
+    email: '',
+    password: '',
+  });
   const [isVerifying, setVerifying] = useState(false);
 
-  const onSignupClick = () => NavigationService.navigate(navigation, Screens.SIGNUP);
+  const onSignupClick = () =>
+    NavigationService.navigate(navigation, Screens.SIGNUP);
 
   const handleChange = (payload: { name: string; value: string }) => {
     setLoginForm({ ...loginForm, [payload.name]: payload.value });
-  }
+  };
 
   const handleSubmit = async () => {
     if (Helpers.isEmpty(loginForm.email)) {
@@ -49,63 +64,79 @@ const LoginScreen: React.FC = () => {
     } finally {
       setVerifying(false);
     }
-  }
+  };
 
   return (
-    <Layout>
-      <View style={style.root}>
-        <Text style={style.loginText}>{Lang.EN.appText}</Text>
-        <Text style={style.loginHeader}>{Lang.EN.loginHeader}</Text>
-        <KeyboardAvoidingView>
-          <TextInput
-            placeholder={Lang.EN.email}
-            style={style.input}
-            clearButtonMode={Setting.inputClearMode}
-            value={loginForm.email}
-            onChangeText={(value: string) => handleChange({ name: 'email', value })}
-          />
-        </KeyboardAvoidingView>
-        <KeyboardAvoidingView>
-          <TextInput
-            placeholder={Lang.EN.password}
-            style={style.input}
-            clearButtonMode={Setting.inputClearMode}
-            secureTextEntry={true}
-            onChangeText={(value: string) => handleChange({ name: 'password', value })}
-          />
-        </KeyboardAvoidingView>
+    <KeyboardAvoidingView
+      style={style.keyboardView}
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+      <Layout>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <View style={style.root}>
+            <Text style={style.loginText}>{Lang.EN.appText}</Text>
+            <Text style={style.loginHeader}>{Lang.EN.loginHeader}</Text>
+            <KeyboardAvoidingView>
+              <TextInput
+                placeholder={Lang.EN.email}
+                style={style.input}
+                clearButtonMode={Setting.inputClearMode}
+                value={loginForm.email}
+                onChangeText={(value: string) =>
+                  handleChange({ name: 'email', value })
+                }
+              />
+            </KeyboardAvoidingView>
+            <KeyboardAvoidingView>
+              <TextInput
+                placeholder={Lang.EN.password}
+                style={style.input}
+                clearButtonMode={Setting.inputClearMode}
+                secureTextEntry={true}
+                onChangeText={(value: string) =>
+                  handleChange({ name: 'password', value })
+                }
+              />
+            </KeyboardAvoidingView>
 
-        <TouchableOpacity style={style.loginButton} onPress={handleSubmit}>
-          <Text style={style.loginButtonText}>{Lang.EN.signIn}</Text>
-          {isVerifying && (
-            <ActivityIndicator style={{ marginLeft: 5 }} />
-          )}
-        </TouchableOpacity>
+            <TouchableOpacity style={style.loginButton} onPress={handleSubmit}>
+              <Text style={style.loginButtonText}>{Lang.EN.signIn}</Text>
+              {isVerifying && <ActivityIndicator style={{ marginLeft: 5 }} />}
+            </TouchableOpacity>
 
-        <Text style={style.orSignText}>- {Lang.EN.orSignInWith} - </Text>
+            <Text style={style.orSignText}>- {Lang.EN.orSignInWith} - </Text>
 
-        <View style={style.socialLoginContainer}>
-          <TouchableOpacity>
-            <View style={style.socialLoginButton}>
-              <Image source={require('../../assests/icons/google.png')} style={style.socialImage} />
+            <View style={style.socialLoginContainer}>
+              <TouchableOpacity>
+                <View style={style.socialLoginButton}>
+                  <Image
+                    source={require('../../assests/icons/google.png')}
+                    style={style.socialImage}
+                  />
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity>
+                <View style={style.socialLoginButton}>
+                  <Image
+                    source={require('../../assests/icons/facebook.png')}
+                    style={style.socialImage}
+                  />
+                </View>
+              </TouchableOpacity>
             </View>
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <View style={style.socialLoginButton}>
-              <Image source={require('../../assests/icons/facebook.png')} style={style.socialImage} />
-            </View>
-          </TouchableOpacity>
-        </View>
 
-        <View style={style.signupContainer}>
-          <Text>{Lang.EN.dontHaveAccount}</Text>
-          <TouchableOpacity onPress={onSignupClick}>
-            <Typography color="primary" style={style.signupText}>{Lang.EN.signup}</Typography>
-          </TouchableOpacity>
-        </View>
-      </View>
-    </Layout>
-  )
-}
+            <View style={style.signupContainer}>
+              <Text>{Lang.EN.dontHaveAccount}</Text>
+              <TouchableOpacity onPress={onSignupClick}>
+                <Typography color="primary" style={style.signupText}>
+                  {Lang.EN.signup}
+                </Typography>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </TouchableWithoutFeedback>
+      </Layout>
+    </KeyboardAvoidingView>
+  );
+};
 
 export default LoginScreen;

@@ -5,9 +5,13 @@ import { StyleSheet } from 'react-native';
 import { Pallete } from '@app/constant';
 
 const style = StyleSheet.create({
-  root: {
-    flex: 1,
-    backgroundColor: Pallete.common.white,
+  input: {
+    borderWidth: 1,
+    borderColor: Pallete.border.main,
+    paddingVertical: 12,
+    paddingHorizontal: 10,
+    borderRadius: 4,
+    marginBottom: 4,
   },
 });
 

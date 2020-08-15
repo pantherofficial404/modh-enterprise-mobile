@@ -17,13 +17,13 @@ const SplashScreen: React.FC = () => {
     } else {
       NavigationService.navigate(navigation, Screens.LOGIN);
     }
-  }, []);
+  }, [navigation]);
 
   return (
     <View style={style.root}>
       <Text style={style.logoText}>MV</Text>
     </View>
-  )
-}
+  );
+};
 
 export default SplashScreen;

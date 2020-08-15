@@ -1,9 +1,8 @@
 // Libraries
 import React from 'react';
-import { View, Text } from 'react-native';
+import { Text } from 'react-native';
 
 // Project files
-import style from './home.style';
 import Layout from '@app/layout';
 
 const HomeScreen: React.FC = () => {
@@ -11,8 +10,7 @@ const HomeScreen: React.FC = () => {
     <Layout>
       <Text>Home screen</Text>
     </Layout>
-  )
-}
+  );
+};
 
 export default HomeScreen;
-

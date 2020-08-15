@@ -1,5 +1,5 @@
 export default {
-  'EN': {
+  EN: {
     appText: 'SR Mart',
     loginHeader: 'Login to your Account',
     email: 'Email',
@@ -7,11 +7,11 @@ export default {
     signIn: 'Sign in',
     orSignInWith: 'Or sign in with',
     signup: 'Signup',
-    dontHaveAccount: 'Don\'t have an account?',
+    dontHaveAccount: "Don't have an account?",
     emailRequired: 'Email id is required',
     emailInvalid: 'Email id is invalid. Please check once.',
     passwordRequired: 'Password is required',
     invalidLogin: 'Email or password is incorrect.',
-    loginSuccess:'Login succes',
-  }
-}
+    loginSuccess: 'Login succes',
+  },
+};

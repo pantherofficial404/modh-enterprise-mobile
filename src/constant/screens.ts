@@ -1,6 +1,8 @@
 export default {
-  "HOME": "HOME",
-  "SPLASH": "SPLASH",
-  "LOGIN": "LOGIN",
-  "SIGNUP": "SIGNUP"
-}
+  HOME: 'HOME',
+  SPLASH: 'SPLASH',
+  LOGIN: 'LOGIN',
+  SIGNUP: 'SIGNUP',
+  ADDRESS_LIST: 'ADDRESS_LIST',
+  ADDRESS_ADD: 'ADDRESS_ADD',
+};
